@@ -1,6 +1,5 @@
 from fastapi import FastAPI
-from fastapi.encoders import jsonable_encoder
-
+from src.Scapper.facebook_scrap import Facebook_scrap
 from fastapi import APIRouter, Body
 from fastapi.encoders import jsonable_encoder
 
@@ -28,6 +27,11 @@ app.include_router(router, tags=["Facebook"], prefix="/facebook")
 @app.get("/", tags=["Root"])
 async def read_root():
     return {"Hello": "World!"}
+
+@app.get("/scrape/{page_id}")
+async def scrape(page_id: str):
+    profile = Facebook_scrap(page_id).scrap()
+    return profile
 
 
 @app.post("/samir", response_description="Facebook scrapped page data added into the database")
