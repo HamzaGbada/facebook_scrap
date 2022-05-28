@@ -1,0 +1,16 @@
+version: '2'
+services:
+  app:
+    image: 'hamzagbada/scrap:1.0'
+    ports:
+      - "8000:8000"
+    environment:
+      - MONGO_HOST=mongodb
+    depends_on:
+      - mongodb
+  mongodb:
+    image: 'mongo'
+    ports:
+      - "27017:27017"
+    volumes:
+      - ~/db:/data/db
