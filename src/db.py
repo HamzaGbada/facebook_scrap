@@ -13,8 +13,9 @@ facebook_page_collection = database.get_collection("facebook_page_collection")
 def facebook_page_helper(facebook_page) -> dict:
     return {
         "id": str(facebook_page["_id"]),
-        "page_name": facebook_page["page_name"],
-        "number_follower": facebook_page["number_follower"]
+        "page_name": facebook_page["Name"],
+        # "number_follower": facebook_page["number_follower"]
+        # "page_name": facebook_page
     }
 
 
@@ -25,6 +26,9 @@ async def get_all_facebook_pages():
         facebook_pages.append(facebook_page_helper(facebook_page))
     return facebook_pages
 
+async def insert_page(json):
+    facebook_page = await facebook_page_collection.insert_one(json)
+    return facebook_page
 
 # Add a new facebook_page into to the database
 async def add_facebook_page(facebook_page_data: dict) -> dict:

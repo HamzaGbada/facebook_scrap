@@ -1,5 +1,7 @@
-from facebook_scraper import get_profile
+import json
 
+from bson import json_util
+from facebook_scraper import get_profile
 
 class Facebook_scrap:
 
@@ -9,6 +11,6 @@ class Facebook_scrap:
     def scrap(self):
         try:
             profile_json = get_profile(self.page_id)
-            return profile_json
+            return json.loads(json_util.dumps((profile_json)))
         except:
             print("No page available")
