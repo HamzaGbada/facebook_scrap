@@ -3,6 +3,7 @@ import json
 from bson import json_util
 from facebook_scraper import get_profile
 
+
 class Facebook_scrap:
 
     def __init__(self, page_id):
@@ -13,4 +14,4 @@ class Facebook_scrap:
             profile_json = get_profile(self.page_id)
             return json.loads(json_util.dumps((profile_json)))
         except:
-            print("No page available")
+            return {"Error": "page not found"}

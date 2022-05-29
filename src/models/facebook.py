@@ -4,25 +4,27 @@ from pydantic import BaseModel, Field
 
 
 class FacebookPageSchema(BaseModel):
-    page_name: str = Field(...)
-    # number_follower: int = Field(...)
+    Name: str = Field(...)
+    About: str = Field(...)
 
     class Config:
         schema_extra = {
             "example": {
-                "page_name": "Cr7"
+                "Name": "Cr7",
+                "About": "Cr7"
             }
         }
 
 
 class UpdateFacebookModel(BaseModel):
-    page_name: Optional[str]
-    # number_follower: Optional[int]
+    Name: Optional[str]
+    About: Optional[str]
 
     class Config:
         schema_extra = {
             "example": {
-                "page_name": "Cr7"
+                "Name": "Cr7",
+                "About": "Cr7"
             }
         }
 
