@@ -1,9 +1,8 @@
 import motor.motor_asyncio
-from bson import ObjectId
+import os
+# MONGO_DETAILS = "mongodb://test:test@mongodb:27017/test?authSource=admin"
 
-MONGO_DETAILS = "mongodb://test:test@localhost:27017/test?authSource=admin&retryWrites=true&w=majority"
-
-client = motor.motor_asyncio.AsyncIOMotorClient(MONGO_DETAILS)
+client = motor.motor_asyncio.AsyncIOMotorClient(os.environ["DB_URL"])
 
 database = client.facebook_pages
 

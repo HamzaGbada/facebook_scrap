@@ -1,16 +1,37 @@
-version: '2'
+version: "3.8"
+
 services:
-  app:
-    image: 'hamzagbada/scrap:1.0'
+  api:
+    build: .
     ports:
-      - "8000:8000"
+      - 8000:8000
     environment:
-      - MONGO_HOST=mongodb
-    depends_on:
-      - mongodb
-  mongodb:
-    image: 'mongo'
+      - DB_URL=mongodb://db/myTestDB
+
+  db:
+    image: mongo
     ports:
-      - "27017:27017"
+        - 27017:27017
     volumes:
       - ~/db:/data/db
+
+#version: "3.8"
+#
+#services:
+#    api:
+#        build: ./app
+#        ports:
+#            - 80:80
+#        environment:
+#            - DB_URL=mongodb://db/myTestDB
+#        volumes:
+#            - ./app:/app
+#    db:
+#        image: mongo
+#        ports:
+#            - 27017:27017
+#        volumes:
+#            - taskdb:/data/db
+#volumes:
+#    taskdb:
+
