@@ -10,8 +10,8 @@ class FacebookPageSchema(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "Name": "Cr7",
-                "About": "Cr7"
+                "Name": "name of the page",
+                "About": "page descirption"
             }
         }
 
@@ -23,8 +23,8 @@ class UpdateFacebookModel(BaseModel):
     class Config:
         schema_extra = {
             "example": {
-                "Name": "Cr7",
-                "About": "Cr7"
+                "Name": "name of the page",
+                "About": "page descirption"
             }
         }
 
