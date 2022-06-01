@@ -26,9 +26,9 @@
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#installation">Installation</a></li>
+        <li><a href="#usage">Usage</a></li>
       </ul>
     </li>
-    <li><a href="#references">References</a></li>
   </ol>
 </details>
 
@@ -66,7 +66,7 @@ So the main idea is to create a scrapping service and dockerize it.
    ```
 ### Usage
 
-we can access to the SWAGGER UI the service and test each API via:
+You can access to the SWAGGER UI the service and test each API via:
 
 http://0.0.0.0:8000/docs
 
